@@ -14,3 +14,19 @@ export function send(
   });
   res.end(body);
 }
+
+export function escapeHtml(s: string): string {
+  return s.replace(
+    /[&<>"']/g,
+    (ch) =>
+      (
+        ({
+          '&': '&amp;',
+          '<': '&lt;',
+          '>': '&gt;',
+          '"': '&quot;',
+          "'": '&#39;',
+        }) as const
+      )[ch]!,
+  );
+}

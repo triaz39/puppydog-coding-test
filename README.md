@@ -36,7 +36,7 @@ export * from './env.model';
 export * from './http.model';
 ```
 
-Barrels make imports clean: `import type { Handler } from './models'`.
+Barrels make imports clean: `import { Handler } from './models'`.
 
 ---
 
@@ -75,13 +75,23 @@ npm run dev
 npm run dev:callbacks
 ```
 
+## Control-Flow Strategies (MODE)
+
+Same endpoint, implemented four ways:
+
+- callbacks: Manual orchestration
+- async: Using async library helpers
+- promises: Promise chains
+- await: async/await
+
+Switch mode via .env or scripts (npm run dev:callbacks).
+
 **Hit health check:**
 
 ```
 GET http://localhost:3000/health
 → 200 OK (text/plain: "ok")
 ```
-
 
 **Build & run prod:**
 

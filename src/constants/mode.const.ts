@@ -2,12 +2,12 @@ export enum MODES {
   CALLBACKS = 'callbacks',
   ASYNC = 'async',
   PROMISES = 'promises',
-  AWAIT = 'await',
+  ASYNC_AWAIT = 'async-await',
 }
 
 export const ALLOWED_MODES: MODES[] = [
   MODES.ASYNC,
-  MODES.AWAIT,
+  MODES.ASYNC_AWAIT,
   MODES.CALLBACKS,
   MODES.PROMISES,
 ];

@@ -8,8 +8,7 @@ dotenv.config({ path: envFile });
 
 const env: AppEnv = process.env;
 
-// Validate MODE (default to await)
-const rawMode = (env.MODE ?? MODES.AWAIT).trim();
+const rawMode = (env.MODE ?? MODES.ASYNC_AWAIT).trim();
 if (!isMode(rawMode)) {
   // eslint-disable-next-line no-console
   console.error(
@@ -21,7 +20,6 @@ if (!isMode(rawMode)) {
 
 export const MODE: MODES = rawMode;
 
-// Validate/normalize PORT
 const parsedPort = Number(env.PORT ?? 3000);
 export const PORT =
   Number.isFinite(parsedPort) && parsedPort > 0 ? parsedPort : 3000;

@@ -1,28 +1,20 @@
-import { MODE } from './config/env';
 import type { Handler } from './models';
-import { health, notFound } from './handlers';
+import { MODE } from './config/env';
+import { HTTP_STATUS } from './constants';
+import { createRoutes } from './routes';
 
 export function createApp(): Handler {
-  return async (req, res) => {
+  const router = createRoutes();
+
+  return (req, res) => {
     try {
-      const url = new URL(
-        req.url ?? '/',
-        `http://${req.headers.host ?? 'localhost'}`,
-      );
-      const pathname = url.pathname;
-      const method = req.method ?? 'GET';
-
-      if (method === 'GET' && pathname === '/health') return health(req, res);
-
-      return notFound(req, res);
+      return router.handle(req, res);
     } catch (err) {
       // eslint-disable-next-line no-console
       console.error(err);
-
-      // only write if we still can
       if (!res.writableEnded) {
         if (!res.headersSent) {
-          res.writeHead(500, {
+          res.writeHead(HTTP_STATUS.INTERNAL_SERVER_ERROR, {
             'Content-Type': 'text/plain; charset=utf-8',
             'X-Mode': MODE,
           });
