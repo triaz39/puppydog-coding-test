@@ -1,0 +1,41 @@
+{
+  "name": "puppydog-coding-test",
+  "version": "1.0.0",
+  "engines": {
+    "node": "^20.19.0"
+  },
+  "description": "Puppydog Coding Test",
+  "main": "index.js",
+  "scripts": {
+    "dev": "cross-env MODE=await tsx --watch src/server.ts",
+    "build": "tsc -p tsconfig.json",
+    "start": "cross-env NODE_ENV=production node dist/server.js",
+    "lint": "eslint . --ext .ts",
+    "format": "prettier --write .",
+    "test": "vitest run --coverage",
+    "test:callbacks": "cross-env MODE=callbacks vitest run",
+    "test:async": "cross-env MODE=async vitest run",
+    "test:promises": "cross-env MODE=promises vitest run",
+    "test:await": "cross-env MODE=await vitest run"
+  },
+  "keywords": [],
+  "author": "Muhammad Talha triaz39@gmail.com",
+  "license": "ISC",
+  "dependencies": {
+    "async": "^3.2.6",
+    "dotenv": "^17.2.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.34.0",
+    "@types/node": "^24.3.0",
+    "cross-env": "^10.0.0",
+    "eslint": "^9.34.0",
+    "eslint-config-prettier": "^10.1.8",
+    "prettier": "^3.6.2",
+    "supertest": "^7.1.4",
+    "tsx": "^4.20.5",
+    "typescript": "^5.9.2",
+    "typescript-eslint": "^8.41.0",
+    "vitest": "^3.2.4"
+  }
+}
