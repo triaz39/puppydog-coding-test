@@ -33,6 +33,16 @@ function createTitleHandlerCore(
       req.url ?? '/',
       `http://${req.headers.host ?? 'localhost'}`,
     );
+    const routePath = url.pathname.endsWith('/')
+      ? url.pathname.slice(0, -1)
+      : url.pathname;
+
+    if (routePath !== '/I/want/title') {
+      res.writeHead(HTTP_STATUS.NOT_FOUND, {
+        'Content-Type': 'text/plain; charset=utf-8',
+      });
+      res.end('Not Found');
+    }
     const addresses = parseAddresses(url);
 
     if (addresses.length === 0) {
