@@ -13,7 +13,6 @@ export interface GetHtmlOptions {
   userAgent?: string;
 }
 
-/** Raw-callback HTML getter with redirects/timeout/UA. */
 export function getHtml(
   urlStr: string,
   cb: (err: Error | null, html?: string) => void,
@@ -42,7 +41,6 @@ export function getHtml(
     (res) => {
       const status = res.statusCode ?? 0;
 
-      // follow 3xx
       if (
         status >= 300 &&
         status < 400 &&

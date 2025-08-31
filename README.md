@@ -31,7 +31,6 @@ A minimal, production-lean Node server in TypeScript with a clean structure (mod
 Each of `models/`, `utils/`, and `handlers/` can export from an `index.ts`:
 
 ```ts
-// models/index.ts
 export * from './env.model';
 export * from './http.model';
 ```
