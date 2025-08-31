@@ -23,6 +23,7 @@ describe.each([
   [MODES.ASYNC] as const,
   [MODES.PROMISES] as const,
   [MODES.ASYNC_AWAIT] as const,
+  [MODES.STREAM] as const,
 ])('mode=%s', (mode) => {
   it(`returns rendered list with titles and NO RESPONSE (${mode})`, async () => {
     mockMode(mode);

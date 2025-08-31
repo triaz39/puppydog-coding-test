@@ -3,11 +3,7 @@ export enum MODES {
   ASYNC = 'async',
   PROMISES = 'promises',
   ASYNC_AWAIT = 'async-await',
+  STREAM = 'stream',
 }
 
-export const ALLOWED_MODES: MODES[] = [
-  MODES.ASYNC,
-  MODES.ASYNC_AWAIT,
-  MODES.CALLBACKS,
-  MODES.PROMISES,
-];
+export const ALLOWED_MODES: MODES[] = Object.values(MODES);

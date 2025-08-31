@@ -12,6 +12,7 @@
     "dev:async": "cross-env MODE=async tsx --watch src/server.ts",
     "dev:promises": "cross-env MODE=promises tsx --watch src/server.ts",
     "dev:async-await": "cross-env MODE=async-await tsx --watch src/server.ts",
+    "dev:stream": "cross-env MODE=stream tsx --watch src/server.ts",
     "build": "tsc -p tsconfig.json",
     "start": "cross-env NODE_ENV=production node dist/server.js",
     "lint": "eslint . --ext .ts",
@@ -25,7 +26,8 @@
   "dependencies": {
     "async": "^3.2.6",
     "dotenv": "^17.2.1",
-    "rsvp": "^4.8.5"
+    "rsvp": "^4.8.5",
+    "rxjs": "^7.8.2"
   },
   "devDependencies": {
     "@eslint/js": "^9.34.0",
